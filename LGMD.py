@@ -21,14 +21,14 @@ from pygenn.genn_model import (create_custom_neuron_class,
                                 create_custom_weight_update_class,
                                 GeNNModel, init_connectivity)
 from pygenn.genn_wrapper import NO_DELAY
-# from pygenn.genn_wrapper.CUDABackend import DeviceSelect_MANUAL
+from pygenn.genn_wrapper.CUDABackend import DeviceSelect_MANUAL
 
-from qian_dataset.extractSourceSpikes import read_input_spikes
+# from qian_dataset.extractSourceSpikes import read_input_spikes
 # from ag_dataset.extractCleanSourceSpikes_dvs import read_input_spikes_show_dvs
-from ag_dataset.integrateSpikes_dvs import temporal_downsampling_dvs
-from dvx_dataset.extractCleanSourceSpikes_dvx_v1 import read_input_spikes_show_dvx
+# from ag_dataset.integrateSpikes_dvs import temporal_downsampling_dvs
+# from dvx_dataset.extractCleanSourceSpikes_dvx_v1 import read_input_spikes_show_dvx
 # from dvx_dataset.integrateSpikes_dvx import temporal_downsampling_dvx
-from do_dataset.extractCleanSourceSpikes_do_v1 import read_input_spikes_show_do_v1
+# from do_dataset.extractCleanSourceSpikes_do_v1 import read_input_spikes_show_do_v1
 # from do_dataset.integrateSpikes_do import temporal_downsampling_do
 from p_calc import p_scaled_calc
 from extractCleanSourceSpikes import extractSourceSpikes
@@ -198,7 +198,7 @@ i_sgraded_synapse_model = create_custom_weight_update_class(
 # Build model
 # ----------------------------------------------------------------------------
 # Create GeNN model
-model = GeNNModel("float", f"LGMD_{args.code_num}", selectGPUByDeviceID=True) # , deviceSelectMethod=DeviceSelect_MANUAL)
+model = GeNNModel("float", f"LGMD_{args.code_num}", selectGPUByDeviceID=True, deviceSelectMethod=DeviceSelect_MANUAL)
 model.dT = float(timesteps_per_frame)
 # if 'circle' or 'square' in filename:
 #     print('p2')

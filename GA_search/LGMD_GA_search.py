@@ -204,9 +204,9 @@ class GA_search():
 
         if args.save_output:
             filehead = args.filename.split('.')[0]
-            save_dir = os.path.join(os.getcwd(), 'grid_search_self_inhibition_agg', filehead)
-            
-            os.makedirs(save_dir, exist_ok=True)
+            save_dir = os.path.join('/mnt/data0/lgmd_output', 'grid_search_self_inhibition_agg_perceptron', filehead)
+            if not os.path.exists(save_dir):
+                os.makedirs(save_dir)
             
             param_dict = {'b_i':args.b2i, 'i_b':args.i2b, 'tc':args.time_constant_factor, 
                           'd':args.delay_factor, 'nt':args.noise_threshold}
